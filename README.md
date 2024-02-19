@@ -11,10 +11,15 @@ As regras de validação devem respeitar a tabela abaixo:
 
 | valor           | tipo de pagamento |  tipo de produto   | taxa |
 |-----------------|-------------------|:------------------:|------|
-| <= 3000         | PIX               |     CREDIARIO      | 10%  |
+| <= 2500         | PIX               |     CREDIARIO      | 10%  |
+| <= 3000         | PIX               |     BOLETAO_DO_FAUSTAO      | 12%  |
+| > 2500 & < 5000 | BOLETO            | CREDIARIO | 10%  |
 | > 3000 & < 5000 | BOLETO            | BOLETAO_DO_FAUSTAO | 15%  |
-| => 5000  < 8000 | DEBITO            |     CREDIARIO      | 25%  |
-| => 8000         | CREDITO           | BOLETAO_DO_FAUSTAO | 90%  |
+| => 5000  < 7500 | DEBITO            |     CREDIARIO      | 25%  |
+| => 5000  < 8000 | DEBITO            |     BOLETAO_DO_FAUSTAO      | 25%  |
+| => 7500         | CREDITO           | CREDIARIO | 90%  |
+| => 8000         | CREDITO           | BOLETAO_DO_FAUSTAO | 100%  |
+
 
 Qualquer combinação que nao se encaixe nessas regras deverá lançar uma `exceção`
 
