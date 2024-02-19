@@ -9,6 +9,5 @@ interface FeeCalculatorStrategy {
     fun calculate(
         paymentValue: BigDecimal,
         paymentType: PaymentType,
-        product: String
-    ): Boolean
+    ): BigDecimal
 }
